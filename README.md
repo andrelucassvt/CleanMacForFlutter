@@ -26,3 +26,9 @@ Esses itens são recriados automaticamente pelo Flutter/Swift ao rodar `flutter 
 ## Extras
 - Botão **Github** abre o repositório do projeto.
 - Botão **Apoiar** leva para a página de contribuição.
+
+## Download
+
+Baixe a versão mais recente do aplicativo:
+
+👉 [**Releases - Clean Mac for Flutter**](https://github.com/andrelucassvt/CleanMacForFlutter/releases)
