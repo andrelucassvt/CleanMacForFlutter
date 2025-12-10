@@ -1,4 +1,6 @@
-![Ícone do Clean Mac for Flutter](CleanMacForFlutters/Assets.xcassets/AppIcon.appiconset/iconMacApp-2.jpg)
+<div align="center">
+  <img src="CleanMacForFlutters/Assets.xcassets/AppIcon.appiconset/iconMacApp-2.jpg" alt="Ícone do Clean Mac for Flutter" width="150"/>
+</div>
 
 # Clean Mac for Flutter
 
