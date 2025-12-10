@@ -1,3 +1,5 @@
+![Ícone do Clean Mac for Flutter](CleanMacForFlutters/Assets.xcassets/AppIcon.appiconset/iconMacApp-2.jpg)
+
 # Clean Mac for Flutter
 
 Aplicativo para macOS que limpa artefatos de build de projetos Flutter e libera espaço em disco rapidamente.
