@@ -92,7 +92,7 @@ struct HomeView: View {
                                 .font(.title2)
                                 .multilineTextAlignment(.center)
                             
-                            Text("Para que o app funcione corretamente e consiga limpar as pastas dos projetos, conceda Acesso total ao disco nas Configurações do sistema.")
+                            Text(NSLocalizedString("fda.required_description", comment: ""))
                                 .foregroundStyle(.secondary)
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: 520)

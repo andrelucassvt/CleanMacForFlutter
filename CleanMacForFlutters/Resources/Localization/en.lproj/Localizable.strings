@@ -22,6 +22,7 @@
 // MARK: - Commands
 "commands.executing" = "Executing commands...";
 "commands.processing_folder" = "Processing: %@";
+"clean.no.activated" = "No folders to clean";
 
 // MARK: - Alerts
 "alert.error" = "Error";
@@ -31,3 +32,12 @@
 // MARK: - Icons/Labels
 "icon.folder" = "folder";
 "icon.lock" = "lock";
+
+// MARK: - Clean Commands
+"clean.no.activated" = "No activated folders to clean";
+"clean.completed.title" = "Cleaning completed!";
+"clean.completed.summary" = "✅ Folders deleted: %d";
+"clean.completed.space" = "💾 Space freed: %@";
+"clean.completed.warnings" = "⚠️ Warnings: %d";
+"clean.none.deleted.errors" = "No folders were deleted, but %d errors occurred.";
+"clean.nothing.found" = "No folders to clean were found.";

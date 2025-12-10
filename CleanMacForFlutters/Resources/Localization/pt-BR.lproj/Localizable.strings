@@ -22,6 +22,7 @@
 // MARK: - Commands
 "commands.executing" = "Executando comandos...";
 "commands.processing_folder" = "Processando: %@";
+"clean.no.activated" = "Sem pasta para limpar";
 
 // MARK: - Alerts
 "alert.error" = "Erro";
@@ -31,3 +32,12 @@
 // MARK: - Icons/Labels
 "icon.folder" = "pasta";
 "icon.lock" = "bloqueio";
+
+// MARK: - Clean Commands
+"clean.no.activated" = "Nenhuma pasta ativada para limpar";
+"clean.completed.title" = "Limpeza concluída!";
+"clean.completed.summary" = "✅ Pastas deletadas: %d";
+"clean.completed.space" = "💾 Espaço liberado: %@";
+"clean.completed.warnings" = "⚠️ Avisos: %d";
+"clean.none.deleted.errors" = "Nenhuma pasta foi deletada, mas ocorreram %d erros.";
+"clean.nothing.found" = "Nenhuma pasta para limpar foi encontrada.";
