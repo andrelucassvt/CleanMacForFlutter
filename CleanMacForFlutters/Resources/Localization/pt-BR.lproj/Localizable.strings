@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings (Português)
+  CleanMacForFlutters
+*/
+
+// MARK: - Home View
+"home.title" = "Clean Mac for Flutter";
+"home.select_folders" = "Selecionar pastas";
+"home.empty_folders_message" = "Selecione uma ou mais pastas para exibir.";
+"home.run_clean" = "Run clean";
+"home.github" = "Github";
+"home.support" = "Apoiar";
+
+// MARK: - Full Disk Access
+"fda.required_title" = "Acesso total ao disco necessário";
+"fda.required_description" = "Para que o app funcione corretamente e consiga limpar as pastas dos projetos, conceda Acesso total ao disco nas Configurações do sistema.";
+"fda.open_settings" = "Abrir Configurações de Privacidade";
+"fda.try_again" = "Tentar novamente";
+"fda.checking_permissions" = "Verificando permissões…";
+"fda.instructions" = "Caminho: Ajustes do sistema > Privacidade e Segurança > Acesso total ao disco\nAdicione seu app à lista e marque como ativo.";
+
+// MARK: - Commands
+"commands.executing" = "Executando comandos...";
+"commands.processing_folder" = "Processando: %@";
+
+// MARK: - Alerts
+"alert.error" = "Erro";
+"alert.success" = "Sucesso";
+"alert.ok" = "OK";
+
+// MARK: - Icons/Labels
+"icon.folder" = "pasta";
+"icon.lock" = "bloqueio";

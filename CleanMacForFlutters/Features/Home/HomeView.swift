@@ -22,7 +22,7 @@ struct HomeView: View {
                     if hasFDA {
                         // Fluxo normal
                         VStack{
-                            Text("Clean Mac for Flutter")
+                            Text(NSLocalizedString("home.title", comment: ""))
                                 .font(.title)
                                 .padding(.vertical)
                             List {
@@ -30,12 +30,12 @@ struct HomeView: View {
                                     Button {
                                         viewModel.requestFolderPermission()
                                     } label: {
-                                        Label("Selecionar pastas", systemImage: "folder.badge.plus")
+                                        Label(NSLocalizedString("home.select_folders", comment: ""), systemImage: "folder.badge.plus")
                                     }
                                 }
                                 
                                 if viewModel.selectedFolders.isEmpty {
-                                    Text("Selecione uma ou mais pastas para exibir.")
+                                    Text(NSLocalizedString("home.empty_folders_message", comment: ""))
                                         .foregroundStyle(.secondary)
                                 } else {
                                     ForEach(viewModel.selectedFolders) { folder in
@@ -63,24 +63,32 @@ struct HomeView: View {
                             }
                             .padding(.horizontal, 120)
                             
-                            
                             HStack{
-                                Button("Run clean") {
+                                Button(NSLocalizedString("home.run_clean", comment: "")) {
                                    viewModel.cleanCommand()
                                }
                                .foregroundStyle(.blue)
                                .disabled(viewModel.isRunningCommands)
+                                Button(NSLocalizedString("home.github", comment: "")) {
+                                    if let url = URL(string: "https://github.com/andrelucassvt/CleanMacForFlutter") {
+                                        NSWorkspace.shared.open(url)
+                                    }
+                                }
+                                Button(NSLocalizedString("home.support", comment: "")) {
+                                    if let url = URL(string: "https://link.mercadopago.com.br/cleanmacforflutter") {
+                                        NSWorkspace.shared.open(url)
+                                    }
+                                }
                             }
                             .padding(.bottom, 50)
                         }
                     } else {
-                        // Tela de instrução para conceder FDA
                         VStack(spacing: 24) {
                             Image(systemName: "lock.trianglebadge.exclamationmark")
                                 .font(.system(size: 48, weight: .semibold))
                                 .foregroundStyle(.yellow)
                             
-                            Text("Acesso total ao disco necessário")
+                            Text(NSLocalizedString("fda.required_title", comment: ""))
                                 .font(.title2)
                                 .multilineTextAlignment(.center)
                             
@@ -93,7 +101,7 @@ struct HomeView: View {
                                 Button {
                                     openFullDiskAccessPreferences()
                                 } label: {
-                                    Text("Abrir Configurações de Privacidade")
+                                    Text(NSLocalizedString("fda.open_settings", comment: ""))
                                         .frame(maxWidth: 340)
                                 }
                                 .buttonStyle(.borderedProminent)
@@ -106,7 +114,7 @@ struct HomeView: View {
                                             ProgressView()
                                                 .controlSize(.small)
                                         }
-                                        Text("Tentar novamente")
+                                        Text(NSLocalizedString("fda.try_again", comment: ""))
                                     }
                                     .frame(maxWidth: 340)
                                 }
@@ -114,7 +122,7 @@ struct HomeView: View {
                             }
                             .padding(.top, 8)
                             
-                            Text("Caminho: Ajustes do sistema > Privacidade e Segurança > Acesso total ao disco\nAdicione seu app à lista e marque como ativo.")
+                            Text(NSLocalizedString("fda.instructions", comment: ""))
                                 .font(.footnote)
                                 .foregroundStyle(.secondary)
                                 .multilineTextAlignment(.center)
@@ -123,11 +131,10 @@ struct HomeView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 } else {
-                    // Estado indeterminado: checando
                     VStack(spacing: 16) {
                         ProgressView()
                             .scaleEffect(1.2)
-                        Text("Verificando permissões…")
+                        Text(NSLocalizedString("fda.checking_permissions", comment: ""))
                             .foregroundStyle(.secondary)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -149,7 +156,7 @@ struct HomeView: View {
                         ProgressView()
                             .scaleEffect(1.5)
                         
-                        Text("Executando comandos...")
+                        Text(NSLocalizedString("commands.executing", comment: ""))
                             .font(.headline)
                         
                         if !viewModel.currentProcessingFolder.isEmpty {
@@ -164,15 +171,15 @@ struct HomeView: View {
                 }
             }
         }
-        .alert("Erro", isPresented: .constant(viewModel.errorMessage != nil), presenting: viewModel.errorMessage) { _ in
-            Button("OK") {
+        .alert(NSLocalizedString("alert.error", comment: ""), isPresented: .constant(viewModel.errorMessage != nil), presenting: viewModel.errorMessage) { _ in
+            Button(NSLocalizedString("alert.ok", comment: "")) {
                 viewModel.errorMessage = nil
             }
         } message: { message in
             Text(message)
         }
-        .alert("Sucesso", isPresented: .constant(viewModel.successMessage != nil), presenting: viewModel.successMessage) { _ in
-            Button("OK") {
+        .alert(NSLocalizedString("alert.success", comment: ""), isPresented: .constant(viewModel.successMessage != nil), presenting: viewModel.successMessage) { _ in
+            Button(NSLocalizedString("alert.ok", comment: "")) {
                 viewModel.successMessage = nil
             }
         } message: { message in

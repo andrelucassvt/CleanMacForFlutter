@@ -13,7 +13,6 @@ enum PersistenceKey {
     static let bookmarks = "selectedFoldersBookmarks"
 }
 
-
 @Observable
 class HomeViewModel {
     var selectedFolders: [DocModel] = []
@@ -22,8 +21,6 @@ class HomeViewModel {
     var errorMessage: String?
     var successMessage: String?
     var hasLoadedPersistedFolders = false
-    
-
     
     func requestFolderPermission() {
         let panel = NSOpenPanel()
@@ -49,9 +46,9 @@ class HomeViewModel {
                 merged.append(docModel)
             }
         }
-        selectedFolders = merged.sorted { 
-            URL(fileURLWithPath: $0.path).lastPathComponent.lowercased() < 
-            URL(fileURLWithPath: $1.path).lastPathComponent.lowercased() 
+        selectedFolders = merged.sorted {
+            URL(fileURLWithPath: $0.path).lastPathComponent.lowercased() <
+            URL(fileURLWithPath: $1.path).lastPathComponent.lowercased()
         }
         persistFolders()
     }
@@ -91,9 +88,9 @@ class HomeViewModel {
             }
         }
         
-        selectedFolders = resolved.sorted { 
-            URL(fileURLWithPath: $0.path).lastPathComponent.lowercased() < 
-            URL(fileURLWithPath: $1.path).lastPathComponent.lowercased() 
+        selectedFolders = resolved.sorted {
+            URL(fileURLWithPath: $0.path).lastPathComponent.lowercased() <
+            URL(fileURLWithPath: $1.path).lastPathComponent.lowercased()
         }
     }
     
@@ -107,12 +104,11 @@ class HomeViewModel {
         UserDefaults.standard.set(bookmarks, forKey: PersistenceKey.bookmarks)
     }
     
-    
     func cleanCommand() {
         let activatedFolders = selectedFolders.filter { $0.activated }
         
         guard !activatedFolders.isEmpty else {
-            errorMessage = "Nenhuma pasta ativada para executar a limpeza."
+            errorMessage = NSLocalizedString("clean.no.activated", comment: "No activated folders to clean")
             return
         }
         
@@ -168,14 +164,19 @@ class HomeViewModel {
                 
                 if deletedCount > 0 {
                     let sizeString = ByteCountFormatter.string(fromByteCount: totalSize, countStyle: .file)
-                    self.successMessage = "Limpeza concluída!\n\n✅ \(deletedCount) pasta(s) deletada(s)\n\n💾 \(sizeString) liberados"
+                    let title = NSLocalizedString("clean.completed.title", comment: "Cleaning completed title")
+                    let summary = String(format: NSLocalizedString("clean.completed.summary", comment: "Deleted count summary"), deletedCount)
+                    let space = String(format: NSLocalizedString("clean.completed.space", comment: "Freed space summary"), sizeString)
+                    var message = "\(title)\n\n\(summary)\n\n\(space)"
                     if failedCount > 0 {
-                        self.successMessage! += "\n⚠️ \(failedCount) falha(s)"
+                        let warnings = String(format: NSLocalizedString("clean.completed.warnings", comment: "Warnings count"), failedCount)
+                        message += "\n\(warnings)"
                     }
+                    self.successMessage = message
                 } else if failedCount > 0 {
-                    self.errorMessage = "Nenhuma pasta foi deletada. \(failedCount) erro(s) encontrado(s)."
+                    self.errorMessage = String(format: NSLocalizedString("clean.none.deleted.errors", comment: "None deleted but errors occurred"), failedCount)
                 } else {
-                    self.successMessage = "Nenhuma pasta 'build' ou '.dart_tool' foi encontrada nos projetos selecionados."
+                    self.successMessage = NSLocalizedString("clean.nothing.found", comment: "Nothing to clean found")
                 }
             }
             
