@@ -1,19 +1,22 @@
 <div align="center">
-  <img src="CleanMacForFlutters/Assets.xcassets/AppIcon.appiconset/iconMacApp-2.jpg" alt="Ícone do Clean Mac for Flutter" width="150"/>
+  <img src="CleanMacForFlutters/Assets.xcassets/AppIcon.appiconset/iconMacApp-2.jpg" alt="Clean Mac for Flutter icon" width="150"/>
 </div>
+
 
 # Clean Mac for Flutter
 
-Aplicativo para macOS que limpa artefatos de build de projetos Flutter e libera espaço em disco rapidamente.
+A macOS app that cleans Flutter project build artifacts and quickly frees up disk space.
 
-## Como funciona
-1. Abra o app e conceda **Full Disk Access** quando solicitado (Ajustes do Sistema → Privacidade e Segurança → Acesso total ao disco). Sem essa permissão o app não consegue apagar as pastas dos projetos.
-2. Clique em **Selecionar pastas** e escolha as pastas raiz dos projetos Flutter que quer manter na lista.
-3. Ative ou desative cada projeto pelo toggle da lista (apenas os ativos serão limpos).
-4. Pressione **Run clean**. O app mostra o progresso e, ao final, um resumo com quantidade de pastas removidas e espaço liberado.
-5. Os caminhos escolhidos ficam salvos; basta reabrir o app e rodar a limpeza novamente quando precisar.
+## How it works
+1. Open the app and grant **Full Disk Access** when prompted  
+   (System Settings → Privacy & Security → Full Disk Access).  
+   Without this permission, the app cannot delete project folders.
+2. Click **Select folders** and choose the root folders of the Flutter projects you want to keep in the list.
+3. Enable or disable each project using the toggle in the list (only enabled projects will be cleaned).
+4. Press **Run clean**. The app shows the progress and, at the end, a summary with the number of folders removed and the disk space freed.
+5. The selected paths are saved. Just reopen the app and run the cleaning again whenever needed.
 
-## O que é removido
+## What is removed
 - `build/`
 - `.dart_tool/`
 - `pubspec.lock`
@@ -21,14 +24,13 @@ Aplicativo para macOS que limpa artefatos de build de projetos Flutter e libera 
 - `ios/Podfile.lock`
 - `ios/Gemfile.lock`
 
-Esses itens são recriados automaticamente pelo Flutter/Swift ao rodar `flutter pub get`, `pod install` ou novos builds, então é seguro removê-los para recuperar espaço.
+These items are automatically recreated by Flutter/Swift when running  
+`flutter pub get`, `pod install`, or new builds, so it is safe to remove them to recover disk space.
 
 ## Extras
-- Botão **Github** abre o repositório do projeto.
-- Botão **Apoiar** leva para a página de contribuição.
+- **GitHub** button opens the project repository.
+- **Support** button takes you to the contribution page.
 
 ## Download
-
-Baixe a versão mais recente do aplicativo:
-
-👉 [**Releases - Clean Mac for Flutter**](https://github.com/andrelucassvt/CleanMacForFlutter/releases)
+Latest release:  
+https://github.com/andrelucassvt/CleanMacForFlutter/releases
