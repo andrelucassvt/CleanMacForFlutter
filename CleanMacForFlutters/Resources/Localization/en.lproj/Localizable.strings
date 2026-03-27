@@ -8,6 +8,7 @@
 "home.select_folders" = "Select folders";
 "home.empty_folders_message" = "Select one or more folders to display.";
 "home.run_clean" = "Run clean";
+"home.clean_build_index" = "Clean build & index";
 "home.github" = "Github";
 "home.support" = "Support";
 
@@ -41,3 +42,14 @@
 "clean.completed.warnings" = "⚠️ Warnings: %d";
 "clean.none.deleted.errors" = "No folders were deleted, but %d errors occurred.";
 "clean.nothing.found" = "No folders to clean were found.";
+
+// MARK: - Build & Index Clean
+"build.index.processing" = "Cleaning DerivedData and Index...";
+"build.index.completed.title" = "Build data and index removed!";
+"build.index.nothing.found" = "No build data or index found.";
+"build.index.select.confirm" = "Confirm";
+"build.index.select.message" = "Select the Xcode folder to clean DerivedData and Index.\nDefault path: ~/Library/Developer/Xcode";
+"build.index.confirm.title" = "Confirm cleanup";
+"build.index.confirm.message" = "Do you want to delete Xcode build data and project index?\n\nSpace to be freed: %@";
+"build.index.confirm.delete" = "Delete";
+"build.index.confirm.cancel" = "Cancel";

@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "xcodebuild: build",
+            "type": "shell",
+            "command": "xcodebuild",
+            "args": [
+                "-project", "CleanMacForFlutters.xcodeproj",
+                "-scheme", "CleanMacForFlutters",
+                "-configuration", "Debug",
+                "-destination", "platform=macOS",
+                "SYMROOT=${workspaceFolder}/.build",
+                "build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$xcodebuild"
+        }
+    ]
+}

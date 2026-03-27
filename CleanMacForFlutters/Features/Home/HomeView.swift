@@ -69,13 +69,13 @@ struct HomeView: View {
                                }
                                .foregroundStyle(.blue)
                                .disabled(viewModel.isRunningCommands)
+                                Button(NSLocalizedString("home.clean_build_index", comment: "")) {
+                                    viewModel.cleanBuildAndIndexCommand()
+                                }
+                                .foregroundStyle(.orange)
+                                .disabled(viewModel.isRunningCommands)
                                 Button(NSLocalizedString("home.github", comment: "")) {
                                     if let url = URL(string: "https://github.com/andrelucassvt/CleanMacForFlutter") {
-                                        NSWorkspace.shared.open(url)
-                                    }
-                                }
-                                Button(NSLocalizedString("home.support", comment: "")) {
-                                    if let url = URL(string: "https://link.mercadopago.com.br/cleanmacforflutter") {
                                         NSWorkspace.shared.open(url)
                                     }
                                 }
@@ -184,6 +184,14 @@ struct HomeView: View {
             }
         } message: { message in
             Text(message)
+        }
+        .alert(NSLocalizedString("build.index.confirm.title", comment: ""), isPresented: $viewModel.showBuildIndexConfirmation) {
+            Button(NSLocalizedString("build.index.confirm.cancel", comment: ""), role: .cancel) { }
+            Button(NSLocalizedString("build.index.confirm.delete", comment: ""), role: .destructive) {
+                viewModel.confirmCleanBuildAndIndex()
+            }
+        } message: {
+            Text(String(format: NSLocalizedString("build.index.confirm.message", comment: ""), viewModel.buildIndexSizeDescription))
         }
     }
     

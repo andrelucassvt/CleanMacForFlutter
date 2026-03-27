@@ -8,6 +8,7 @@
 "home.select_folders" = "Selecionar pastas";
 "home.empty_folders_message" = "Selecione uma ou mais pastas para exibir.";
 "home.run_clean" = "Run clean";
+"home.clean_build_index" = "Limpar compilação e índice";
 "home.github" = "Github";
 "home.support" = "Apoiar";
 
@@ -41,3 +42,14 @@
 "clean.completed.warnings" = "⚠️ Avisos: %d";
 "clean.none.deleted.errors" = "Nenhuma pasta foi deletada, mas ocorreram %d erros.";
 "clean.nothing.found" = "Nenhuma pasta para limpar foi encontrada.";
+
+// MARK: - Build & Index Clean
+"build.index.processing" = "Limpando DerivedData e Index...";
+"build.index.completed.title" = "Dados de compilação e índice removidos!";
+"build.index.nothing.found" = "Nenhum dado de compilação ou índice encontrado.";
+"build.index.select.confirm" = "Confirmar";
+"build.index.select.message" = "Selecione a pasta Xcode para limpar DerivedData e Index.\nCaminho padrão: ~/Library/Developer/Xcode";
+"build.index.confirm.title" = "Confirmar limpeza";
+"build.index.confirm.message" = "Deseja apagar os dados de compilação e índice do Xcode?\n\nEspaço a ser liberado: %@";
+"build.index.confirm.delete" = "Apagar";
+"build.index.confirm.cancel" = "Cancelar";
