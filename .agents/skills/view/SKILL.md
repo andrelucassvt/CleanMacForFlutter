@@ -21,7 +21,7 @@ A partir do nome PascalCase, derive:
 
 1. **ViewModel dedicado**: precisa de ViewModel? (padrao: sim)
 2. **Repository**: qual Repository sera injetado no ViewModel? (ex: `UserRepository`) — se nao souber, use um placeholder
-3. **Navegacao**: a View sera usada dentro de um `NavigationView`? (padrao: sim)
+3. **Navegacao**: a View sera usada dentro de um `NavigationView`? (padrao: sim). Se **nao**, omita o wrapper `NavigationView`, `.navigationViewStyle(.stack)` e o `.navigationTitle`.
 
 ## O que criar
 
@@ -86,19 +86,20 @@ struct <Name>View: View {
 }
 
 #Preview("Loading") {
-    <Name>View(viewModel: <Name>ViewModel(repository: Mock<Repository>(forceLoading: true)))
+    <Name>View(viewModel: <Name>ViewModel(repository: Mock<Repository>(state: .loading)))
 }
 
 #Preview("Error") {
-    <Name>View(viewModel: <Name>ViewModel(repository: Mock<Repository>(forceError: true)))
+    <Name>View(viewModel: <Name>ViewModel(repository: Mock<Repository>(state: .failure)))
 }
 ```
 
 ### 2. `ViewModels/<Name>ViewModel.swift` (se solicitado)
 
+> Para padrões completos de ViewModel (busca, paginação, múltiplos estados), use a skill `view-model`.
+
 ```swift
 import Foundation
-import Combine
 
 @MainActor
 final class <Name>ViewModel: ObservableObject {

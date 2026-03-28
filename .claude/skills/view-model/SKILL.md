@@ -174,6 +174,13 @@ func delete(_ item: <Model>) async {
 
 private var cancellables = Set<AnyCancellable>()
 
+// MARK: - Init
+
+init(repository: <Repository>Protocol = <Repository>()) {
+    self.repository = repository
+    setupSearch()
+}
+
 private func setupSearch() {
     $searchText
         .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
@@ -224,7 +231,7 @@ func save() async {
 
 ```swift
 @Published private(set) var state: ViewState<[<Model>]> = .idle
-private(set) var hasMorePages = true
+@Published private(set) var hasMorePages: Bool = true
 private var currentPage = 0
 
 func loadNextPage() async {
@@ -270,10 +277,12 @@ import Testing
 @Suite("<Name>ViewModel Tests")
 struct <Name>ViewModelTests {
 
-    @Test("Estado inicial e idle")
+    @Test("Estado inicial é idle")
     func initialState() {
         let viewModel = <Name>ViewModel(repository: Mock<Repository>())
-        #expect(viewModel.state == .idle)
+        #expect(!viewModel.state.isLoading)
+        #expect(viewModel.state.value == nil)
+        #expect(viewModel.state.errorMessage == nil)
     }
 
     @Test("Carrega dados com sucesso")
@@ -298,13 +307,6 @@ struct <Name>ViewModelTests {
         #expect(viewModel.state.value == nil)
     }
 
-    @Test("Estado loading durante carregamento")
-    func loadingState() async {
-        let mockRepo = Mock<Repository>(state: .success)
-        let viewModel = <Name>ViewModel(repository: mockRepo)
-
-        #expect(viewModel.state.isLoading == false)
-    }
 }
 ```
 
