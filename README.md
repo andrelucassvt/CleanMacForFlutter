@@ -50,4 +50,6 @@ https://github.com/andrelucassvt/CleanMacForFlutter/releases
 
 ## Licenca de uso
 
-Este codigo **nao esta liberado para uso comercial**. O uso e permitido apenas em projetos open source sem fins lucrativos.
+Este codigo **não esta liberado para uso comercial**. O uso é permitido apenas em projetos open source sem fins lucrativos.
+
+This code **is not licensed for commercial use**. Use is permitted only in non-profit open source projects.
